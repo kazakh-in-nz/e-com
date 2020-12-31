@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import './App.css';
-import DashBoard from './components/Dashboard';
+import './App.scss';
+import DashBoard from './components/dashboard/Dashboard';
 import ProductList from './components/ProductList';
 import data from './data/data.js'
 
@@ -23,10 +23,10 @@ function App() {
       </div>
       <Switch>
         <Route path='/dash-board'>
-          <DashBoard />
+          <DashBoard dashBoardData={data.dashBoardData}/>
         </Route>
         <Route path='/product-list'>
-          <ProductList />
+          <ProductList productListData={data.productList}/>
         </Route>
       </Switch>
     </Router>
