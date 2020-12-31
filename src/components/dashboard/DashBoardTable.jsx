@@ -1,17 +1,33 @@
 import React from 'react'
-import { Table, Button } from 'reactstrap'
+import { Table } from 'reactstrap'
 
-export default function DashBoardTable({tableData}) {
+let sortParam = ''
+let sortOrder = ''
+
+export default function DashBoardTable({tableData, sortBy}) {
+    
+
+    const sortData = (param) => {
+        if (param !== sortParam) {
+            sortOrder = 'asc'
+        } else {
+            sortOrder = sortOrder === 'asc' ? 'des' : 'asc'
+        }
+        sortParam = param
+        console.log(sortParam, sortOrder)
+        sortBy(sortParam, sortOrder)
+    }
+
     return (
         <React.Fragment>
             <Table striped>
                 <thead>
                     <tr>
                         <th>Invoice</th>
-                        <th>Customer</th>
-                        <th>Purchase On</th>
-                        <th>Amount</th>
-                        <th>Status</th>
+                        <th onClick={() => {sortData('first_name')}}>Customer</th>
+                        <th onClick={() => {sortData('purchaseOn')}}>Purchase On</th>
+                        <th onClick={() => {sortData('amount')}}>Amount</th>
+                        <th onClick={() => {sortData('status')}}>Status</th>
                         <th>Tracking</th>
                     </tr>
                 </thead>
@@ -30,9 +46,6 @@ export default function DashBoardTable({tableData}) {
                     })}
                 </tbody>
             </Table>
-            <Button>1</Button>
-            <Button>1</Button>
-            <Button>1</Button>
         </React.Fragment>
     )
 }

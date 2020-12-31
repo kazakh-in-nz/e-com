@@ -1,12 +1,22 @@
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import './App.scss';
 import DashBoard from './components/dashboard/Dashboard';
-import ProductList from './components/ProductList';
+import ProductList from './components/productList/ProductList';
 import data from './data/data.js'
 
-console.log(data)
+let dashBoardData = null
 
 function App() {
+
+  const cleanData = () => {
+    if (dashBoardData === null) {
+      data.dashBoardData.forEach(item => {
+        item.amount = Number(item.amount)
+      })
+    }
+    return data.dashBoardData
+  }
+
   return (
     <Router>
       <div className="App">
@@ -23,7 +33,7 @@ function App() {
       </div>
       <Switch>
         <Route path='/dash-board'>
-          <DashBoard dashBoardData={data.dashBoardData}/>
+          <DashBoard dashBoardData={cleanData()}/>
         </Route>
         <Route path='/product-list'>
           <ProductList productListData={data.productList}/>
