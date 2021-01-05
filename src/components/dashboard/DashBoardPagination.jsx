@@ -33,7 +33,6 @@ export default function DashBoardPagination({dataLength, currentPage, setCurrent
     }
 
     const disableButton = (edge) => {
-        console.log(currentPage)
         return edge === currentPage ? true : false
     }
 

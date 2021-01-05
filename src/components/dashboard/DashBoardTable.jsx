@@ -14,7 +14,6 @@ export default function DashBoardTable({tableData, sortBy}) {
             sortOrder = sortOrder === 'asc' ? 'des' : 'asc'
         }
         sortParam = param
-        console.log(sortParam, sortOrder)
         sortBy(sortParam, sortOrder)
     }
 
@@ -35,12 +34,12 @@ export default function DashBoardTable({tableData, sortBy}) {
                     {tableData.map((item, ind)=> {
                         return (
                             <tr key={ind}>
-                                <th scope="row">{item.invoice}</th>
-                                <th>{`${item.first_name} ${item.last_name}`}</th>
-                                <th>{item.purchaseOn}</th>
-                                <th>{item.amount}</th>
-                                <th>{item.status}</th>
-                                <th>{item.tracking}</th>
+                                <th className="invoice" scope="row">{item.invoice}</th>
+                                <th className="customer">{`${item.first_name} ${item.last_name}`}</th>
+                                <th className="purchaseOn">{item.purchaseOn}</th>
+                                <th className="amount">{item.amount}</th>
+                                <th className="status">{item.status}</th>
+                                <th className="tracking">{item.tracking}</th>
                             </tr>
                         )
                     })}

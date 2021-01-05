@@ -9,10 +9,19 @@ function customSort({...a}, {...b}, param) {
 }
 
 function formDate(str) {
-    console.log(typeof(str))
     let dateParts = str.split("/");
     let dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]); 
     return dateObject
 }
 
-module.exports = {customSort}
+function getDatesOfLastWeek(firstDay){
+    let aDay = null
+    let result = []
+    for (let i = 0; i < 7; i++) {
+        aDay = new Date(firstDay.getTime() + i*24*3600*1000)
+        result.push(aDay)
+    }
+    return result
+}
+
+module.exports = {customSort, formDate, getDatesOfLastWeek}

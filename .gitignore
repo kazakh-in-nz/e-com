@@ -128,3 +128,9 @@ yarn-error.log*
 
 # package-lock.json
 package-lock.json
+
+# vs-code folder
+.vscode/
+
+# es-lincache
+.eslintcache
