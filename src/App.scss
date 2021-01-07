@@ -1,32 +1,47 @@
 .App-header {
-    a {
-        text-decoration: none;
-        cursor: pointer;
-    }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    li {
-        list-style: none;
-        display: inline-block;
-        margin-right: 5pt;
-    }
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 5pt;
+  }
 }
 
 .db-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    .charts {
-        margin-bottom: 20pt;
-        canvas {
-            height: 300pt;
-            width: 600pt;
-        }
+  .charts {
+    margin-bottom: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+
+    canvas {
+      height: 300pt;
+      width: 600pt;
+    }
+  }
+
+  .table {
+    width: 80%;
+    margin: auto;
+
+    .invoice {
+      overflow: hidden;
+      width: 10%;
     }
 
     .pagination {
-        margin: auto;
-        justify-self: center;
+      margin: auto;
+      justify-self: center;
     }
+  }
 }
